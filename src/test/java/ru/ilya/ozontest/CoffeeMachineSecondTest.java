@@ -6,10 +6,9 @@ import ru.ilya.ozontest.page.CoffeeMachinePage;
 import ru.ilya.ozontest.page.MainPage;
 import ru.ilya.ozontest.util.TestSupport;
 
-public class CoffeeMachineFirstTest extends TestSupport {
-
+public class CoffeeMachineSecondTest extends TestSupport {
     @Test
-    public void coffeeMachineFirstTest() throws InterruptedException {
+    public void coffeeMachineSecondTest() throws InterruptedException {
         MainPage mainPage = new MainPage(webDriver, webDriverWait);
         mainPage.clickCatalogButton();
         mainPage.moveCursorToAppliancesCatalogItem();
@@ -18,6 +17,9 @@ public class CoffeeMachineFirstTest extends TestSupport {
 
         coffeeMachinePage.inputMinPrice();
         coffeeMachinePage.inputMaxPrice();
+
+        coffeeMachinePage.checkEspressoMachineTypeCheckbox();
+        coffeeMachinePage.checkCupHeatCheckbox();
 
         coffeeMachinePage.checkCoffeeMachineListPrice();
 
@@ -32,5 +34,4 @@ public class CoffeeMachineFirstTest extends TestSupport {
         cartPage.increaseCoffeeMachineCount();
         cartPage.checkPriceIncrease();
     }
-
 }

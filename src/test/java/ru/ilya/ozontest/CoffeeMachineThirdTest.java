@@ -1,15 +1,14 @@
 package ru.ilya.ozontest;
 
 import org.testng.annotations.Test;
-import ru.ilya.ozontest.page.CartPage;
 import ru.ilya.ozontest.page.CoffeeMachinePage;
+import ru.ilya.ozontest.page.FavoritesPage;
 import ru.ilya.ozontest.page.MainPage;
 import ru.ilya.ozontest.util.TestSupport;
 
-public class CoffeeMachineFirstTest extends TestSupport {
-
+public class CoffeeMachineThirdTest extends TestSupport {
     @Test
-    public void coffeeMachineFirstTest() throws InterruptedException {
+    public void coffeeMachineThirdTest() throws InterruptedException {
         MainPage mainPage = new MainPage(webDriver, webDriverWait);
         mainPage.clickCatalogButton();
         mainPage.moveCursorToAppliancesCatalogItem();
@@ -23,14 +22,15 @@ public class CoffeeMachineFirstTest extends TestSupport {
 
         coffeeMachinePage.sortCoffeeMachineListByPriceDesc();
 
-        coffeeMachinePage.addFirstCoffeeMachineToCart();
+        int price = coffeeMachinePage.getCoffeeMachinePrice();
+        int discount = coffeeMachinePage.getCoffeeMachineDiscount();
 
-        coffeeMachinePage.openCart();
+        coffeeMachinePage.addToFavorites();
 
-        CartPage cartPage = new CartPage(webDriver, webDriverWait);
+        coffeeMachinePage.openFavoritesPage();
 
-        cartPage.increaseCoffeeMachineCount();
-        cartPage.checkPriceIncrease();
+        FavoritesPage favoritesPage = new FavoritesPage(webDriver, webDriverWait);
+
+        favoritesPage.comparePriceAndDiscount(price, discount);
     }
-
 }

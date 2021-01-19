@@ -2,6 +2,7 @@ package ru.ilya.ozontest.page;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
@@ -25,6 +26,7 @@ public class MainPage {
 
     @Step("Нажать кнопку каталог")
     public void clickCatalogButton() {
+        webDriver.findElement(By.tagName("body")).sendKeys(Keys.ESCAPE);
         WebElement catalogButton = webDriver.findElement(By.xpath(CATALOG_BUTTON_XPATH));
         catalogButton.click();
     }
