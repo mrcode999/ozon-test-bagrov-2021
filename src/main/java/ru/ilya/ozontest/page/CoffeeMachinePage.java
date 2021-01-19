@@ -28,7 +28,7 @@ public class CoffeeMachinePage {
     private final String OPEN_CART_LINK_XPATH = "/html/body/div[1]/div/div[1]/header/div[1]/div[4]/a[2]";
 
     private final String ESPRESSO_MACHINE_TYPE_CHECKBOX_XPATH = "/html/body/div[1]/div/div[1]/div[3]/div[2]/div[1]/aside/div[5]/div[2]/div/span[2]/label/div[1]";
-    private final String CUP_HEAT_CHECKBOX_XPATH = "/html/body/div[1]/div/div[1]/div[3]/div[2]/div[1]/aside/div[9]/div[2]/div/span[2]/label/div[1]";
+    private final String CUP_HEAT_CHECKBOX_XPATH = "/html/body/div[1]/div/div[1]/div[3]/div[2]/div[1]/aside/div[8]/div[2]/div/span[2]/label/div[1]";
 
     private final String ADD_TO_FAVORITES_XPATH = "/html/body/div[1]/div/div[1]/div[3]/div[2]/div[2]/div[3]/div[1]/div[1]/div/div[1]/div/div/div[3]/div[1]/div/div/button";
     private final String FAVORITES_LINK_XPATH = "/html/body/div[1]/div/div[1]/header/div[1]/div[4]/a[1]";
@@ -78,7 +78,7 @@ public class CoffeeMachinePage {
             System.out.println(coffeeMachine.getText());
             int price = Integer.parseInt(coffeeMachine.getText().replaceAll("[ ₽]", ""));
 
-            Assert.assertTrue("Цена вне указанного диапазона", priceInRange(price));
+            Assert.assertTrue("Цена вне указанного диапазона. Значение: " + price , priceInRange(price));
         }
     }
 
